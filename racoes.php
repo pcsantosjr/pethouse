@@ -86,50 +86,26 @@
             </ul>
 
         </nav>
-        <div class="prod">
-            <a href=""><img src="images\racao\racao_01.jpg"></a>
-            <p>Ração Pedigree</br>Adultos, raças medias e grandes. 10Kg</br>R$144,99 ou 3x R$48,33</p>
-        </div>
-        <div class="prod">
-            <a href=""><img src="images\racao\racao_02.jpg"></a>
-            <p>Ração Quatree Goumert, para cães
-                adultos, raças médias e grandes,
-                2,7 Kg
-                R$ 51,99 ou 3x R$17,33</p>
-        </div>
-        <div class="prod">
-            <a href=""><img src="images\racao\racao_03.jpg"></a>
-            <p>Ração VittaMax para cães filhotes,
-                raças médias e grandes, 2,3Kg
-                R$ 28,99 ou 2xR$ 14,49</p>
-        </div>
-        <div class="prod">
-            <a href=""><img src="images\racao\racao_04.jpg"></a>
-            <p>Ração ND Prime para gatos adultos,
-                1,5 Kg
-                R$ 99,99 ou 3x R$ 33,33</p>
-        </div>
-        <div class="prod">
-            <a href=""><img src="images\racao\racao_05.jpg"></a>
-            <p>Ração Premier para cães adultos,
-                raças médias e grandes, 2,5 Kg
-                R$ 29,99 ou 3x R$ 14,99</p>
-        </div>
-        <div class="prod">
-            <a href=""><img src="images\racao\racao_06.jpg"></a>
-            <p>Ração Coby para cães, raças
-                médias e grandes, 10 Kg
-                R$ 57,99 ou 3x R$ 19,33</p>
-        </div>
+
+        <?php
+            $conexao = new PDO('mysql:host=localhost;dbname=pethouse',"root", "");
+            $query = $conexao->prepare("SELECT * FROM produtos WHERE TipoDeProduto = 1");
+            $query->execute();
+            $produtos = $query->fetchAll();
+
+            foreach($produtos as $produto) {
+                echo 
+                '<div class="prod">'
+                    .'<a href=""><img src="images\racao\\'.$produto['NomeImagem'].'"></a>'
+                    .'<p>'.$produto['Nome'].'</p>'
+                    .'<p>Preco: R$ '.number_format($produto['Preco'],2,',','.').'</p>'
+                    .'<a href="carrinho.php?add=carrinho&id='.$produto['Id'].'">Adicionar ao carrinho</a>'
+                    .'</div>';
+            }
+        ?>
+
+  
     </main>
 </div>
-
-<!-- tarja
-    <div class="bar">
-        <h3>_____________________</br>
-            _____________________</h3>
-    </div> -->
-
-
 </div>
 <?php include("partials/footer.php"); ?>

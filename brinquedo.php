@@ -73,46 +73,26 @@
             </ul>
 
         </nav>
-        <div class="prod">
-            <a href=""><img src="images\brinks\brink_01.jpg"></a>
-            <p>Brinquedo de corda para cães
-                R$ 34,99 ou 2x 17,49</p>
-        </div>
-        <div class="prod">
-            <a href=""><img src="images\brinks\brink_02.jpg"></a>
-            <p>Osso de borracha para cães
-                R$ 19,99 à vista</p>
-        </div>
-        <div class="prod">
-            <a href=""><img src="images\brinks\brink_03.jpg"></a>
-            <p>Bola de linha para cães
-                R$ 29,99 ou 2x 15,49</p>
-        </div>
-        <div class="prod">
-            <a href=""><img src="images\brinks\brink_04.jpg"></a>
-            <p>Polvo de borracha para cães
-                R$ 24,99 ou 2x 12,49</p>
-        </div>
-        <div class="prod">
-            <a href=""><img src="images\brinks\brink_05.jpg"></a>
-            <p>Galinha de borracha para
-                cães
-                R$ 34,99 ou 2x 17,49</p>
-        </div>
-        <div class="prod">
-            <a href=""><img src="images\brinks\brink_06.jpg"></a>
-            <p>Bola de silicone para cães
-                R$ 29,99 ou 2x 15,49</p>
-        </div>
+
+        <?php
+            $conexao = new PDO('mysql:host=localhost;dbname=pethouse',"root", "");
+            $query = $conexao->prepare("SELECT * FROM produtos WHERE TipoDeProduto = 2");
+            $query->execute();
+            $produtos = $query->fetchAll();
+
+            foreach($produtos as $produto) {
+                echo 
+                '<div class="prod">'
+                    .'<a href=""><img src="images\brinks\\'.$produto['NomeImagem'].'"></a>'
+                    .'<p>'.$produto['Nome'].'</p>'
+                    .'<p>Preco: R$ '.number_format($produto['Preco'],2,',','.').'</p>'
+                    .'<a href="carrinho.php?add=carrinho&id='.$produto['Id'].'">Adicionar ao carrinho</a>'
+                    .'</div>';
+            }
+        ?>
+
     </main>
 </div>
 
-<!-- tarja
-    <div class="bar">
-        <h3>_____________________</br>
-            _____________________</h3>
-    </div> -->
 
-
-</div>
 <?php include("partials/footer.php"); ?>

@@ -27,6 +27,13 @@ header {
 
 }
 
+p {
+    font-size: 12px;
+}
+
+a {
+    font-size: 12px;
+}
 #promo {
     margin-top: 10px;
     clear: both;

@@ -72,52 +72,26 @@
             </ul>
 
         </nav>
-        <div class="prod">
-            <a href=""><img src="images\moda\moda_01.jpg"></a>
-            <p>Lenço/bandana de pescoço
-                ajustável, estampa geométrica,
-                para cães e gatos
-                R$ 18,99 à vista</p>
-        </div>
-        <div class="prod">
-            <a href=""><img src="images\moda\moda_02.jpg"></a>
-            <p>Coleira/bandana de pescoço
-                ajustável, para cães e gatos
-                R$ 19,99 à vista</p>
-        </div>
-        <div class="prod">
-            <a href=""><img src="images\moda\moda_03.jpg"></a>
-            <p>Lenço de pescoço ajustável,
-                estampa de doces, para gatos
-                R$ 15,99 à vista</p>
-        </div>
-        <div class="prod">
-            <a href=""><img src="images\moda\moda_04.jpg"></a>
-            <p>Lenço de pescoço ajustável,
-                xadrez, para cães
-                R$ 19,99 à vista</p>
-        </div>
-        <div class="prod">
-            <a href=""><img src="images\moda\moda_05.jpg"></a>
-            <p>Lenço/bandana de pescoço
-                ajustável, amarelo, para cães
-                R$ 17,99 à vista</p>
-        </div>
-        <div class="prod">
-            <a href=""><img src="images\moda\moda_06.jpg"></a>
-            <p>Lenço/bandana de pescoço
-                ajustável, xadrez, para gatos
-                R$ 18,99 à vista</p>
+        
+        <?php
+            $conexao = new PDO('mysql:host=localhost;dbname=pethouse',"root", "");
+            $query = $conexao->prepare("SELECT * FROM produtos WHERE TipoDeProduto = 3");
+            $query->execute();
+            $produtos = $query->fetchAll();
+
+            foreach($produtos as $produto) {
+                echo 
+                '<div class="prod">'
+                    .'<a href=""><img src="images\moda\\'.$produto['NomeImagem'].'"></a>'
+                    .'<p>'.$produto['Nome'].'</p>'
+                    .'<p>Preco: R$ '.number_format($produto['Preco'],2,',','.').'</p>'
+                    .'<a href="carrinho.php?add=carrinho&id='.$produto['Id'].'">Adicionar ao carrinho</a>'
+                    .'</div>';
+            }
+        ?>
+       
         </div>
     </main>
 </div>
-
-<!-- tarja
-    <div class="bar">
-        <h3>_____________________</br>
-            _____________________</h3>
-    </div> -->
-
-
 </div>
 <?php include("partials/footer.php"); ?>

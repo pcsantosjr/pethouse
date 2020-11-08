@@ -93,12 +93,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<?php include("partials/header.php"); ?>
+<?php include("partials/header2.php"); ?>
 
 <section id="banner_login">
     <div class="inner">
         <div class="logo">
-            <img src="images\banner_caes_gatos.png">
+            <a href="index.php"><img src="images\banner_caes_gatos.png"></a>
 
         </div>
     </div>
@@ -109,28 +109,78 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h2>Registro</h2>
         <p>Por favor, preencha esse formulário.</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?> "style="width:200px;font-size: 13px">
-                <label><h5>Usuário:</h5></label>
+
+            <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?> " style="width:200px;font-size: 13px">
+                <label>
+                    <h5>Usuário:</h5>
+                </label>
                 <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
                 <span class="help-block"><?php echo $username_err; ?></span>
+
             </div>
-            <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?> "style="width:150px;font-size: 13px">
-                <label><h5>Senha:</h5></label>
+            <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?> " style="width:150px;font-size: 13px">
+                <label>
+                    <h5>Senha:</h5>
+                </label>
                 <input type="password" name="password" class="form-control" value="<?php echo $password; ?>">
                 <span class="help-block"><?php echo $password_err; ?></span>
             </div>
-            <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?> "style="width:150px;font-size: 13px">
-                <label><h5>Repetir a Senha:</h5></label>
+            <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?> " style="width:150px;font-size: 13px">
+                <label>
+                    <h5>Repetir a Senha:</h5>
+                </label>
                 <input type="password" name="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>">
                 <span class="help-block"><?php echo $confirm_password_err; ?></span>
             </div>
+            <hr>
             <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Submit">
-                <input type="reset" class="btn btn-default" value="Reset">
+                <label for="inputNome">Nome</label>
+                <input type="text" class="form-control" id="inputNome" placeholder="Nome completo">
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">Email</label>
+                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputPhone">Telefone</label>
+                    <input type="phone" class="form-control" id="inputTel" placeholder="(  )">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputCep">CEP</label>
+                    <input type="text" class="form-control" id="inputCep" placeholder="CEP">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputAddress">Endereço</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="Rua dos Bobos, nº 0">
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputCity">Cidade</label>
+                    <input type="text" class="form-control" id="inputCity">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputEstado">Estado</label>
+                    <select id="inputEstado" class="form-control">
+                        <option selected>Escolher...</option>
+                        <option>SP</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputCEP">CEP</label>
+                    <input type="text" class="form-control" id="inputCEP">
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Cadastrar">
+                <input type="reset" class="btn btn-secondary" value="Limpar">
             </div>
             <p>Já tem uma conta? <a href="login.php">Faça login aqui.</a>.</p>
         </form>
     </div>
 </div>
 
-<?php include("partials/footer.php"); ?>
+
+<?php include("partials/footer2.php"); ?>

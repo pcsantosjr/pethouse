@@ -1,7 +1,7 @@
 
 body {
     width: 980px;
-    background-color: #ffffff;
+    background-color:#ffffff;
     background-size: auto, cover;
     background-attachment: fixed;
     background-position: center;
@@ -23,8 +23,8 @@ body {
 }
 
 header {
-    height: 160px;
-
+    height: 190px;
+    margin-bottom: 20px;       
 }
 
 p {
@@ -236,7 +236,7 @@ main {
 .prod {
     float: left;
     width: 160px;
-    height: 300px;
+    height: 320px;
     padding: 0;
     margin: 22px;
     border: solid 5px #adadad;
@@ -293,9 +293,8 @@ main {
 }
 
 .tela_login {
-    /*float: left; */
-    width: 300px;
-    height: 500px;
+    
+    width: 700px;
     margin: 0 auto 0 auto;
     background-color: #ffffff;
     padding: 0;

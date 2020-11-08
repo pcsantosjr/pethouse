@@ -1,5 +1,5 @@
 Comandos usados SQL
-**Precisa ter um db chamada db_pethouse**
+**Precisa ter um db chamada pethouse**
 dep de criar a db, rodar os códigos abaixo..
 
 

@@ -1,6 +1,10 @@
 
 
 <footer id="footer">
+    <!-- tarja-->
+<div class="tarja">
+    <p>_______________</P>
+</div>
     <div id="rodape">
         <div id="atendimento">
                 <h3>ATENDIMENTO</h3>

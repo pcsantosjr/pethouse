@@ -28,7 +28,9 @@
 <body>
 
 <div id="wrapper">
-    <header>
+    
+    
+        <!--
         <div id="promo">
             <h4>
                 <span style="color:black" ;>
@@ -49,7 +51,7 @@
                     <li><a href="moda_pet.php">Moda Pet</a></li>
                     <li><a href="racoes.php">Rações</a></li>
                     
-                    <!--<li><a href="">Cadastre-se</a></li> -->
+                    <!--<li><a href="">Cadastre-se</a></li> 
                 </ul>
             </nav>
 
@@ -62,7 +64,7 @@
                         </span>
                         <a href="login.php">ENTRAR</a> / <a href="logout.php">SAIR</a>
                     </li>
-                    <li><a href=""><i class="fa fa-shopping-cart fa-2x"></i>(<?php echo '$idProduto[0]';?>)</a></li>
+                    <li><a href=""><i class="fa fa-shopping-cart fa-2x"></i>()</a></li>
                 </ul>
                 <!--<div class="login">
                         <i class="fa fa-user"></i><h3>ENTRAR</h3>
@@ -72,7 +74,7 @@
                     </div>
                     <div class="socials">
                     </div>
-                -->
+                
             </section>
         </div>
 
@@ -80,4 +82,4 @@
   <div class="tarja">
         <p>_______________</P>
     </div>
-    </header>
+    

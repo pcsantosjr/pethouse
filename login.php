@@ -89,13 +89,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<?php include("partials/header.php"); ?>
+<?php include("partials/header2.php"); ?>
 
 
 <section id="banner_login">
     <div class="inner">
         <div class="logo">
-            <img src="images\banner_caes_gatos.png">
+            <a href="index.php"><img src="images\banner_caes_gatos.png"></a>
 
         </div>
     </div>
@@ -117,11 +117,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <span class="help-block"><?php echo $password_err; ?></span>
             </div>
             <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Login">
+                <input type="submit" class="btn btn-primary" value="Entrar">
             </div>
             <p>Não tem uma conta?</p>
             <a href="register.php">Registre-se agora!</a>
         </form>
     </div>
 </div>
-<?php include("partials/footer.php"); ?>
+<?php include("partials/footer2.php"); ?>

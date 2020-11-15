@@ -65,16 +65,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($username_err) && empty($password_err) && empty($confirm_password_err)) {
 
         // Prepare an insert statement
-        $sql = "INSERT INTO users (username, password) VALUES (?, ?)";
+        $nome = $_POST["nome"];
+        $cpf = $_POST["cpf"]; 
+        $email = $_POST["email"]; 
+        $telefone = $_POST["telefone"]; 
+        $cep = $_POST["cep"]; 
+        $endereco = $_POST["endereco"]; 
+        $numero = $_POST["numero"]; 
+        $bairro = $_POST["bairro"]; 
+        $complemento = $_POST["complemento"]; 
+        $cidade = $_POST["cidade"]; 
+        $estado = $_POST["estado"];
+        $sql = "INSERT INTO users (username, password, nome, cpf, email, telefone, cep, endereco, numero, bairro, complemento, cidade, estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         if ($stmt = mysqli_prepare($link, $sql)) {
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_password);
+            mysqli_stmt_bind_param($stmt, "sssssssssssss", $param_username, $param_password, $param_nome, $param_cpf, $param_email, $param_telefone, $param_cep, $param_endereco, $param_numero, $param_bairro, $param_complemento, $param_cidade, $param_estado);
 
             // Set parameters
             $param_username = $username;
             $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
-
+            $param_nome = $nome;
+            $param_cpf = $cpf;
+            $param_email = $email;
+            $param_telefone = $telefone;
+            $param_cep = $cep;
+            $param_endereco = $endereco;
+            $param_numero = $numero; 
+            $param_bairro = $bairro;
+            $param_complemento = $complemento; 
+            $param_cidade = $cidade;
+            $param_estado = $estado;
             // Attempt to execute the prepared statement
             if (mysqli_stmt_execute($stmt)) {
                 // Redirect to login page
@@ -135,42 +156,79 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <hr>
             <div class="form-group">
                 <label for="inputNome">Nome</label>
-                <input type="text" class="form-control" id="inputNome" placeholder="Nome completo">
+                <input type="text" name="nome" class="form-control" id="inputNome" placeholder="Nome completo">
+            </div>
+            <div class="form-group col-md-4">
+                    <label for="inputCpf">CPF</label>
+                    <input type="text" name="cpf" class="form-control" id="inputCpf" placeholder="xxx.xxx.xxx-xx">
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="inputEmail4">Email</label>
-                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                    <label for="inputEmail4">E-mail</label>
+                    <input type="email" name="email" class="form-control" id="inputEmail4" placeholder="pethouse@pethouse.com">
                 </div>
                 <div class="form-group col-md-4">
                     <label for="inputPhone">Telefone</label>
-                    <input type="phone" class="form-control" id="inputTel" placeholder="(  )">
+                    <input type="phone" name="telefone" class="form-control" id="inputTel" placeholder="(  ) 999999999">
                 </div>
                 <div class="form-group col-md-2">
                     <label for="inputCep">CEP</label>
-                    <input type="text" class="form-control" id="inputCep" placeholder="CEP">
+                    <input type="text" name="cep" class="form-control" id="inputCep" placeholder="CEP">
                 </div>
             </div>
-
             <div class="form-group">
                 <label for="inputAddress">Endereço</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="Rua dos Bobos, nº 0">
+                <input type="text"  name="endereco" class="form-control" id="inputAddress" placeholder="Rua dos Bobos">
+            </div>
+            <div class="form-group col-md-2">
+                    <label for="inputNumero">Nº</label>
+                    <input type="text" name="numero" class="form-control" id="inputNumero" placeholder="0">
+            </div>
+            <div class="form-group col-md-4">
+                    <label for="inputBairro">Bairro</label>
+                    <input type="text" name="bairro" class="form-control" id="inputBairro" placeholder="Centro">
+            </div>
+            <div class="form-group col-md-4">
+                    <label for="inputComplemento">Complemento</label>
+                    <input type="text" name="complemento" class="form-control" id="inputComplemento" placeholder="Apartamento 1">
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputCity">Cidade</label>
-                    <input type="text" class="form-control" id="inputCity">
+                    <input type="text" name="cidade" class="form-control" id="inputCity">
                 </div>
                 <div class="form-group col-md-4">
                     <label for="inputEstado">Estado</label>
-                    <select id="inputEstado" class="form-control">
+                    <select id="inputEstado" name="estado" class="form-control">
                         <option selected>Escolher...</option>
+                        <option>AC</option>
+                        <option>AL</option>
+                        <option>AM</option>
+                        <option>AP</option>
+                        <option>BA</option>
+                        <option>CE</option>
+                        <option>ES</option>
+                        <option>DF</option>
+                        <option>GO</option>
+                        <option>MA</option>
+                        <option>MG</option>
+                        <option>MS</option>
+                        <option>MT</option>
+                        <option>PA</option>
+                        <option>PB</option>
+                        <option>PE</option>
+                        <option>PI</option>
+                        <option>PR</option>
+                        <option>RJ</option>
+                        <option>RN</option>
+                        <option>RO</option>
+                        <option>RR</option>
+                        <option>RS</option>
+                        <option>SC</option>
+                        <option>SE</option>
                         <option>SP</option>
+                        <option>TO</option>
                     </select>
-                </div>
-                <div class="form-group col-md-2">
-                    <label for="inputCEP">CEP</label>
-                    <input type="text" class="form-control" id="inputCEP">
                 </div>
             </div>
             <div class="form-group">

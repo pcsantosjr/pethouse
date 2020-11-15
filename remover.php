@@ -5,5 +5,12 @@
     {
         $idProduto = $_GET['id'];
         unset($_SESSION['itens'][$idProduto]);
-        echo '<meta HTTP-EQUIV="REFRESH" CONTENT="0;carrinho.php"/>';
+        if(count($_SESSION['itens']) == 0)
+        {
+            echo '<meta HTTP-EQUIV="REFRESH" CONTENT="0;index.php"/>';
+        } 
+        else 
+        {
+            echo '<meta HTTP-EQUIV="REFRESH" CONTENT="0;carrinho.php"/>';
+        }      
     }

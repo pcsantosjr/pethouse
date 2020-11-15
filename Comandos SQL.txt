@@ -19,23 +19,23 @@ SET time_zone = "+00:00";
 
 --
 -- Banco de dados: `pethouse`
---COPIE E COLE NO SQL DEPOIS DE CRIAR O BD
+-- COPIE E COLE NO SQL DEPOIS DE CRIAR O BD
 
 -- Estrutura do tabela 'users'
 
 CREATE TABLE users (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    'username' VARCHAR(50) NOT NULL UNIQUE,
-    'password' VARCHAR(20) NOT NULL,
-    'nome' VARCHAR(250) NOT NULL,
-    'cpf' VARCHAR(11) NOT NULL,
-    'email' VARCHAR(100) NOT NULL,
-    'telefone' VARCHAR(11) NOT NULL,
-    'cep' INT(7) NOT NULL,
-    'endereco' VARCHAR(200) NOT NULL,
-    'bairro' VARCHAR(100) NOT NULL,
-    'cidade' VARCHAR(100) NOT NULL,
-    'estado' VARCHAR(100) NOT NULL,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(20) NOT NULL,
+    nome VARCHAR(250) NOT NULL,
+    cpf VARCHAR(11) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    telefone VARCHAR(11) NOT NULL,
+    cep INT(7) NOT NULL,
+    endereco VARCHAR(200) NOT NULL,
+    bairro VARCHAR(100) NOT NULL,
+    cidade VARCHAR(100) NOT NULL,
+    estado VARCHAR(100) NOT NULL,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 

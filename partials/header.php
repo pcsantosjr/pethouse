@@ -70,11 +70,12 @@
                         ?>
                     </li>
                     <li><a href="carrinho.php"><i class="fa fa-shopping-cart fa-2x"></i>(
+                        <?php include("partials/quantidadeCarrinho.php"); ?>
                         <?php 
-                            if(empty($_SESSION['itens']))
+                            if(empty($_SESSION['quantidadeProduto']))
                                 echo 0;
                             else
-                                echo count($_SESSION['itens'])
+                                echo $_SESSION['quantidadeProduto'];
                         ?>
                     )</a></li>
                 </ul>

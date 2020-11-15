@@ -61,8 +61,22 @@
                             </a><i class="fa fa-user fa-2x"></i>
                         </span>
                         <a href="login.php">ENTRAR</a> / <a href="logout.php">SAIR</a>
+                        <?php 
+                            session_start();
+                            if(empty($_SESSION['username']))
+                                echo '';
+                            else
+                                echo $_SESSION['username']
+                        ?>
                     </li>
-                    <li><a href=""><i class="fa fa-shopping-cart fa-2x"></i>(<?php echo '$idProduto[0]';?>)</a></li>
+                    <li><a href="carrinho.php"><i class="fa fa-shopping-cart fa-2x"></i>(
+                        <?php 
+                            if(empty($_SESSION['itens']))
+                                echo 0;
+                            else
+                                echo count($_SESSION['itens'])
+                        ?>
+                    )</a></li>
                 </ul>
                 <!--<div class="login">
                         <i class="fa fa-user"></i><h3>ENTRAR</h3>

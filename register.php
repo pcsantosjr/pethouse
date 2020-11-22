@@ -114,7 +114,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<?php include("partials/header2.php"); ?>
+<?php include("app/partials/header2.php"); ?>
 
 <section id="banner_login">
     <div class="inner">
@@ -241,4 +241,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </div>
 
 
-<?php include("partials/footer2.php"); ?>
+<?php include("app/partials/footer2.php"); ?>

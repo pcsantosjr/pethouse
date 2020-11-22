@@ -70,7 +70,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 }
 ?>
  
- <?php include("partials/header.php"); ?>
+ <?php include("app/partials/header.php"); ?>
 
     <div class="wrapper">
         <h2>Reset Password</h2>
@@ -92,4 +92,4 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>
         </form>
     </div>    
-<?php include("partials/footer.php"); ?>
+<?php include("app/partials/footer.php"); ?>

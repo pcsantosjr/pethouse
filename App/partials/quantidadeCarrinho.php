@@ -1,9 +1,5 @@
 <?php
 
-    if(!$_SESSION){
-        session_start();
-    }
-
     if (!isset($_SESSION['quantidadeProduto'])) {
         $_SESSION['quantidadeProduto'] = 0;
     }

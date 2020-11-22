@@ -1,7 +1,4 @@
-<?php include("partials/header.php"); ?>
-
- 
-   
+<?php include("app/partials/header.php"); ?>
 
     <section id="banner">
         <div class="inner">
@@ -26,7 +23,5 @@
     </main>
 </div>
 
-
-
 </div>
-<?php include("partials/footer.php"); ?>
+<?php include("app/partials/footer.php"); ?>

@@ -10,6 +10,7 @@
 <div class="container">
     <div class="page-header">
         <h1>Carrinho</h1>
+        <a href="index.php" class="btn btn-default">Home</a>
     </div>
 
     <table class="table">
@@ -23,15 +24,31 @@
                 <th></th>
             </tr>
         </thead>
-        <tbody>
+        <tfoot>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td colspan="4"><b>TOTAL</b></td>
+                <td><b>R$ <?php echo number_format($cartTotal, 2, ',', '.') ?></b></td>
                 <td></td>
             </tr>
+        </tfood>
+        <tbody>
+        <?php foreach($cartItems as $item) : ?>
+            <tr>
+                <td><?php echo $item->getProduct()->getId()?></td>
+                <td><?php echo $item->getProduct()->getName()?></td>
+                <td>
+                    <form action="index.php?page=cart&action=update" method="post">
+                        <input name="id" type="hidden" value="<?php echo $item->getProduct()->getId()?>" />
+                        <input type="text" size="2" name="quantity" value="<?php echo $item->getQuantity()?>" />
+                        <button type="submit" class="btn btn-primary btn-xs">Alterar</button>
+                    </form>
+                <td>R$ <?php echo number_format($item->getProduct()->getPrice(), 2, ',', '.')?></td>
+                <td>R$ <?php echo number_format($item->getSubTotal(), 2, ',', '.')?></td>
+                <td>
+                    <a href="index.php?page=cart&action=delete&id=<?php echo $item->getProduct()->getId()?>" class="btn btn-danger">Remover</a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
         </tbody>
     </table>
 </body>

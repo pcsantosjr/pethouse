@@ -1,12 +1,12 @@
 <?php
 
-namespace Carrinho;
+namespace App\Model\Shopping;
 
 class CartSession implements Cart {
-    private $itens = [];
+    private $items = [];
 
-    public function _constructor(){
-        $this->itens = $this->restore();
+    public function __construct(){
+        $this->items = $this->restore();
     }
     
     public function restore(){
@@ -14,46 +14,46 @@ class CartSession implements Cart {
     }
 
     public function has($id){
-        return isset($this->itens[$id]);
+        return isset($this->items[$id]);
     }
     public function add (CartItem $item){
-        $id = $item->getProduto () ->getId();
+        $id = $item->getProduct ()->getId();
         if(!$this->has($id)){
-            $this->itens[$id] = $item;
+            $this->items[$id] = $item;
         }
     }
 
     public function update (CartItem $item){
-        $id = $item->getProduto()->getId();
+        $id = $item->getProduct ()->getId();
         if($this->has($id)){
-            if(!$item->getQuantidade()){
+            if(!$item->getQuantity()){
                 $this->delete($id);
                 return;
             }
-            $this->itens[$id] = $item;
+            $this->items[$id] = $item;
         }
     }
 
     public function delete ($id){
         if($this->has($id)){
-            unset($this->itens[$id]);
+            unset($this->items[$id]);
         }
     }
 
     public function getTotal(){
         $total = 0;
-        foreach ($this->itens as $item){
+        foreach ($this->items as $item){
             $total += $item->getSubTotal();
         }
         return $total;
     }
 
-    public function getCartItens () {
-        return $this->itens;
+    public function getCartItems () {
+        return $this->items;
     }
 
-    public function _destruct(){
-        $_SESSION['cart'] = serialize($this->itens);
+    public function __destruct(){
+        $_SESSION['cart'] = serialize($this->items);
     }
 }
 ?>

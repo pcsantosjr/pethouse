@@ -1,0 +1,147 @@
+-- phpMyAdmin SQL Dump
+-- version 5.0.3
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Tempo de geração: 25-Out-2020 às 21:02
+-- Versão do servidor: 10.4.14-MariaDB
+-- versão do PHP: 7.4.11
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Banco de dados: `pethouse`
+-- COPIE E COLE NO SQL DEPOIS DE CRIAR O BD
+
+-- Estrutura do tabela 'users'
+
+CREATE TABLE users (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(20) NOT NULL,
+    nome VARCHAR(250) NOT NULL,
+    cpf VARCHAR(11) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    telefone VARCHAR(11) NOT NULL,
+    cep INT(7) NOT NULL,
+    endereco VARCHAR(200) NOT NULL,
+    bairro VARCHAR(100) NOT NULL,
+    cidade VARCHAR(100) NOT NULL,
+    estado VARCHAR(100) NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `produtos`
+--
+
+CREATE TABLE `produtos` (
+  `Id` int(11) NOT NULL,
+  `Nome` varchar(250) NOT NULL,
+  `Quantidade` varchar(10) NOT NULL,
+  `Preco` decimal(10,2) NOT NULL,
+  `TipoDeProduto` int(11) NOT NULL,
+  `NomeImagem` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `produtos`
+--
+
+INSERT INTO `produtos` (`Id`, `Nome`, `Quantidade`, `Preco`, `TipoDeProduto`, `NomeImagem`) VALUES
+(1, 'Brinquedo de corda', '50', '34.99', 2, 'brink_01.jpg'),
+(2, 'Osso de borracha', '50', '18.99', 2, 'brink_02.jpg'),
+(3, 'Bola de linha', '50', '28.99', 2, 'brink_03.jpg'),
+(4, 'Polvo de borracha', '50', '23.99', 2, 'brink_04.jpg'),
+(5, 'Galinha de borracha', '50', '33.99', 2, 'brink_05.jpg'),
+(6, 'Bola de silicone', '50', '28.99', 2, 'brink_06.jpg'),
+(7, 'Lenço/bandana de pescoço ajustável, estampa geométrico', '50', '17.99', 3, 'moda_01.jpg'),
+(8, 'Coleira/bandana de pescoço ajustável', '50', '18.99', 3, 'moda_02.jpg'),
+(9, 'Lenço de pescoço ajustável, estampa de doces', '50', '14.99', 3, 'moda_03.jpg'),
+(10, 'Lenço de pescoço ajustável, xadrez', '50', '18.99', 3, 'moda_04.jpg'),
+(11, 'Lenço/bandana de pescoço ajustável, amarelo', '50', '16.99', 3, 'moda_05.jpg'),
+(12, 'Lenço/bandana de pescoço ajustável, xadrez', '50', '17.99', 3, 'moda_06.jpg'),
+(13, 'Ração Pedigree Adultos, raças medias e grandes. 10Kg', '50', '143.99', 1, 'racao_01.jpg'),
+(14, 'Ração Quatree Goumert, para cães adultos, raças médias', '50', '50.99', 1, 'racao_02.jpg'),
+(15, 'Ração VittaMax para cães filhotes, raças médias e grandes', '50', '27.99', 1, 'racao_03.jpg'),
+(16, 'Ração ND Prime para gatos adultos, 1,5 Kg', '50', '99.99', 1, 'racao_04.jpg'),
+(17, 'Ração Premier para cães adultos, raças médias e grandes', '50', '29.99', 1, 'racao_05.jpg'),
+(18, 'Ração Coby para cães, raças médias e grandes, 10Kg', '50', '57.99', 1, 'racao_06.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tipodeproduto`
+--
+
+CREATE TABLE `tipodeproduto` (
+  `Id` int(11) NOT NULL,
+  `Descricao` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `tipodeproduto`
+--
+
+INSERT INTO `tipodeproduto` (`Id`, `Descricao`) VALUES
+(1, 'Alimento'),
+(2, 'Brinquedo'),
+(3, 'Roupa');
+
+--
+-- Índices para tabelas despejadas
+--
+
+--
+-- Índices para tabela `produtos`
+--
+ALTER TABLE `produtos`
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `IX_TipoDeProduto` (`TipoDeProduto`);
+
+--
+-- Índices para tabela `tipodeproduto`
+--
+ALTER TABLE `tipodeproduto`
+  ADD PRIMARY KEY (`Id`);
+
+--
+-- AUTO_INCREMENT de tabelas despejadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `produtos`
+--
+ALTER TABLE `produtos`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+
+--
+-- AUTO_INCREMENT de tabela `tipodeproduto`
+--
+ALTER TABLE `tipodeproduto`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- Restrições para despejos de tabelas
+--
+
+--
+-- Limitadores para a tabela `produtos`
+--
+ALTER TABLE `produtos`
+  ADD CONSTRAINT `produtos_ibfk_1` FOREIGN KEY (`TipoDeProduto`) REFERENCES `tipodeproduto` (`Id`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

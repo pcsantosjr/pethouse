@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Mvc;
 
 class View {
@@ -7,7 +6,7 @@ class View {
     private $folder;
 
     public function __construct (){
-        $this->folfer = DIR.DS.'App'.DS.'view'.DS;
+        $this->folder = DIR.DS.'App'.DS.'view'.DS;
     }
 
     public function set ($key, $value){
@@ -21,9 +20,6 @@ class View {
             include $filename;
         }
     }
-}
-{
-    
 }
 
 ?>

@@ -1,32 +1,28 @@
-<?php include("partials/header.php"); ?>
+<?php
+session_start();
+define("DIR", dirname(__FILE__));
+define("DS", DIRECTORY_SEPARATOR);
 
- 
-   
+include_once DIR.DS.'App'.DS."Loader.php";
 
-    <section id="banner">
-        <div class="inner">
-            <div class="logo">
-                <img src="images\banner02.jpg">
+$loader = new App\Loader();
+$loader->register();
 
-            </div>
-        </div>
-    </section>
+$pdo = new \PDO("mysql:host=localhost;dbname=pethouse", "root", "");
+$productRepository = new App\Model\Product\ProductRepositoryPDO($pdo);
 
-    <main id="content">
-        <div class="produtos">
-            <a href="brinquedo.php"><img src="images\BRINQUEDOS.png"></a>
-        </div>
-        <div class="produtos">
-            <a href="moda_pet.php"><img src="images\MODA PET.png"></a>
-        </div>
-        <div class="produtos">
-            <a href="racoes.php"><img src="images\RACOES.png"></a>
-        </div>
+$page = isset ($_GET['page']) ? $_GET['page'] : '';
+$action = isset($_GET['action']) ? $_GET['action'] : 'index';
 
-    </main>
-</div>
+switch($page){
+    case 'cart' :
+        $sessionCart = new App\Model\Shopping\CartSession();
+        $cart = new App\Controller\Cart($productRepository, $sessionCart);
+        call_user_func_array(array($cart, $action), array());
+    break;
+    default :
+        $home = new App\Controller\Home($productRepository);
+        call_user_func_array(array($home, $action), array());
+}
 
-
-
-</div>
-<?php include("partials/footer.php"); ?>
+?>

@@ -16,6 +16,7 @@ class CartSession implements Cart {
     public function has($id){
         return isset($this->items[$id]);
     }
+    
     public function add (CartItem $item){
         $id = $item->getProduct ()->getId();
         if(!$this->has($id)){

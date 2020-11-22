@@ -20,6 +20,10 @@ switch($page){
         $cart = new App\Controller\Cart($productRepository, $sessionCart);
         call_user_func_array(array($cart, $action), array());
     break;
+    case 'store' :
+        $store = new App\Controller\Store($productRepository);
+        call_user_func_array(array($store, $action), array());
+    break;
     default :
         $home = new App\Controller\Home($productRepository);
         call_user_func_array(array($home, $action), array());

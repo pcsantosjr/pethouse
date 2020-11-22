@@ -71,27 +71,19 @@
         </header>
     </div>
 
-    <section id="banner">
-        <div class="inner">
-            <div class="logo">
-                <img src="app/view/images/banner02.jpg">
-
-            </div>
+    <?php foreach($products as $product) : ?>
+        <div class="prod">'
+            <a href="">
+                <?php echo '<img src="app/view/images/'. $product->getImage().'">'; ?>
+            </a>
+            <p><?php echo $product->getName(); ?></p>
+            <p>R$ <?php echo number_format($product->getPrice(), 2, ',', '.'); ?></p>
+            <form action="index.php?page=cart&action=add" method="post">
+                <input name="id" type="hidden" value="<?php echo $product->getId() ?>"/>
+                <button type="submit" class="btn btn-danger">COMPRAR</button>
+            </form>
         </div>
-    </section>
-
-    <main id="content">
-        <div class="produtos">
-            <a href="index.php?page=store&action=redirect&currentTypeOfProduct=2"><img src="app/view/images/BRINQUEDOS.png"></a>            
-        </div>
-        <div class="produtos">
-            <a href="index.php?page=store&action=redirect&currentTypeOfProduct=3"><img src="app/view/images/MODA PET.png"></a>
-        </div>
-        <div class="produtos">
-            <a href="index.php?page=store&action=redirect&currentTypeOfProduct=1"><img src="app/view/images/RACOES.png"></a>
-        </div>
-
-    </main>
+    <?php endforeach ?>
 
     <footer id="footer">
         <!-- tarja-->

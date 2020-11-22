@@ -8,7 +8,7 @@ use App\Model\Product\ProductRepository;
 class Home extends Controller {
     private $product;
 
-    public function __construct(ProductRepository $product){
+    public function __construct(ProductRepository $product ){
         parent::__construct();
         $this->product = $product;
     }

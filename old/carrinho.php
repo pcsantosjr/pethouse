@@ -67,7 +67,7 @@ else {
 
         $total += $subtotal;
         
-        echo
+        echo 
             '<div class="container"><h5>Nome: ' . $produtos[0]["Nome"] . '<br/>
         Preço: ' . number_format($produtos[0]["Preco"], 2, ",", ".") . '<br/>
         Quantidade: ' . $quantidade . '</h5><br/><hr/>

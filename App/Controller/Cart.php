@@ -15,12 +15,14 @@ class Cart extends Controller{
         parent:: __construct();
         $this->product = $product;
         $this->cart = $cart;
+        
     }
     
     public function index(){
         $this->view->set('cartTotal', $this->cart->getTotal());
         $this->view->set('cartItems', $this->cart->getCartItems());
         $this->view->render("cart");
+        
     }
     
     public function add(){
@@ -30,6 +32,7 @@ class Cart extends Controller{
             $this->cart->add($cartItem);
         }
         header("Location: index.php?page=cart");
+        
     }
 
     public function update(){
@@ -39,6 +42,7 @@ class Cart extends Controller{
             $this->cart->update($cartItem);
         }
         header("Location: index.php?page=cart");
+        
     }
 
     public function delete(){
@@ -48,10 +52,15 @@ class Cart extends Controller{
 
         if(count($this->cart->getCartItems()) == 0){
             header("Location: index.php?page=home");
+            
+            
         }
         else {
             header("Location: index.php?page=cart");
+            
         }  
     }
+
+    
 }
 ?>

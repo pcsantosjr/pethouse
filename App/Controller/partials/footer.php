@@ -11,7 +11,7 @@
                 <ul>
                     <li>Fale com a gente:</li>
                     <li><span style="color:red;"><i class="fa fa-envelope fa-2x "></i></span> sac@pethouse.com.br</li>
-                    <li><span style="color:green;"><i class="fa fa-whatsapp fa-2x "></span></i> (11) 964bolota-67patinete</li>
+                    <li><span style="color:green;"><i class="fa fa-whatsapp fa-2x "></span></i> (11) 9 9999-9999</li>
                     <li><a href="#sac">Reclame aqui</a></li>
                 </ul>
             </div>

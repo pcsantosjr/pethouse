@@ -126,7 +126,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </section>
 
 <div class="wrapper">
-    <div class="tela_login">
+    <div class="tela_login text-center">
         <h2>Registro</h2>
         <p>Por favor, preencha esse formulário.</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
@@ -231,15 +231,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </select>
                 </div>
             </div>
-            <div class="form-row">
-                <div class="form-group col-md-3">
-                    <input type="submit" class="btn btn-primary" value="Cadastrar">
+            <div class="form-row text-center">
+                <div class="form-group col-md-5">
+                    <input type="submit" class="btn btn-primary btn-lg" value="Cadastrar">
                 </div>
-                <div class="form-group col-md-3">
-                    <input type="reset" class="btn btn-secondary" value="Limpar">
+                <div class="form-group col-md-4">
+                    <input type="reset" class="btn btn-secondary btn-lg" value="Limpar">
                 </div>
             </div>
-            <p>Já tem uma conta? <a href="login.php">Faça login aqui.</a>.</p>
+            <div class="text-center">
+                <p>Já tem uma conta? <a href="login.php">Faça login aqui.</a>.</p>
+            </div>
         </form>
     </div>
 </div>

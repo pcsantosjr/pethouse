@@ -103,32 +103,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </section>
 
 <div class="wrapper">
-    <div class="tela_login">
+    <div class="tela_login text-center">
         <h2>Login</h2>
         <p>Coloque seus dados para entrar.</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?> "style="width:200px;font-size: 13px">
-                <label><h5>Usuário:</h5></label>
-                <input type="text" name="username" class="form-control" value="<?php echo $username; ?>"> 
-                <span class="help-block"><?php echo $username_err; ?></span>
+            <div class="form-row text-center">
+                <div class="form-group col-md-7 <?php echo (!empty($username_err)) ? 'has-error' : ''; ?> ">
+                    <label>
+                        <h5>Usuário:</h5>
+                    </label>
+                    <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
+                    <span class="help-block"><?php echo $username_err; ?></span>
+                </div>
+                <div class="form-group col-md-4 <?php echo (!empty($password_err)) ? 'has-error' : ''; ?> ">
+                    <label>
+                        <h5>Senha:</h5>
+                    </label>
+                    <input type="password" name="password" class="form-control">
+                    <span class="help-block"><?php echo $password_err; ?></span>
+                </div>
             </div>
-            <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?> "style="width:150px;font-size: 13px">
-                <label><h5>Senha:</h5></label>
-                <input type="password" name="password" class="form-control">
-                <span class="help-block"><?php echo $password_err; ?></span>
-            </div>
-            <div class="form-group">
+            <div class="form-group text-center">
                 <input type="submit" class="btn btn-primary" value="Entrar">
             </div>
+            <div class="text-center">
             <p>Não tem uma conta?</p>
             <a href="register.php">Registre-se agora!</a>
+            </div>
         </form>
     </div>
 </div>
 <div class="tarja">
     <p>_______________</P>
 </div>
-   
+
 </footer>
 </body>
+
 </html>

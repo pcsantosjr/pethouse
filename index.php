@@ -10,7 +10,6 @@ $loader->register();
 
 $pdo = new \PDO("mysql:host=localhost;dbname=pethouse", "root", "");
 $productRepository = new App\Model\Product\ProductRepositoryPDO($pdo);
-$userRepository = new App\Model\User\UserRepositoryPDO($pdo);
 
 $page = isset ($_GET['page']) ? $_GET['page'] : '';
 $action = isset($_GET['action']) ? $_GET['action'] : 'index';
@@ -20,11 +19,6 @@ switch($page){
         $sessionCart = new App\Model\Shopping\CartSession();
         $cart = new App\Controller\Cart($productRepository, $sessionCart);
         call_user_func_array(array($cart, $action), array());
-    break;
-    case 'finish' :
-        $sessionCart = new App\Model\Shopping\CartSession();
-        $finish = new App\Controller\Finish($productRepository, $userRepository, $sessionCart);
-        call_user_func_array(array($finish, $action), array());
     break;
     case 'store' :
         $store = new App\Controller\Store($productRepository);

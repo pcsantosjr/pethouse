@@ -56,19 +56,19 @@
                                 </td>
                             </tr>
                         <?php endforeach; ?>
-
                     </tbody>
             </table>
         
-        <?php if ($_SESSION["loggedin"] = true) {
-            echo '
-                    <div class="text-center">
-                    <a hreef="app/view/finish.php" class="btn btn-success">Finalizar compra</a>
-                    </div></br>';
+        <?php if ($_SESSION["loggedin"] == true) {
+            echo '<div class="text-center">
+                <a href="index.php?page=finish" class="btn btn-success">Finalizar compra</a>
+                </div>
+                </br>';
         } else {
             echo '<div class="text-center">
-                    <a hreef="login.php" class="btn btn-warning"></a>
-                    </div></br>';
+                <a href="login.php" class="btn btn-warning"></a>
+                </div>
+                </br>';
         }
         ?>
 

@@ -15,11 +15,10 @@ class CartItem {
 
     public function getProduct (){
         return $this->product;
-        
     }
+
     public function getQuantity (){
         return $this->quantity;
-        
     }
 
     public function getSubTotal (){

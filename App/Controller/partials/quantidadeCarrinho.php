@@ -4,17 +4,5 @@
         session_start();
     }
 
-    if (!isset($_SESSION['cart'])) {
-        $_SESSION['cart'] = 0;
-    }
-
-    if (!isset($_SESSION['itens'])) {
-        $_SESSION['cart'] = 0;
-    }
-    else{
-        $_SESSION['cart'] = 0;
-        foreach ($_SESSION['itens'] as $id => $quantity) {
-            $_SESSION['cart'] += $quantity;       
-        }
-    }
+    $_SESSION['quantidadeProduto'] = isset($_SESSION['cart']) ? count(unserialize($_SESSION['cart'])) : 0;
 ?>

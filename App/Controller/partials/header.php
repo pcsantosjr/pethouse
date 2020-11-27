@@ -70,7 +70,7 @@
                         ?>
                     </li>
                     <li><a href="carrinho.php"><i class="fa fa-shopping-cart fa-2x"></i>(
-                        <?php include("app/partials/quantidadeCarrinho.php"); ?>
+                        <?php include("app/Controller/partials/quantidadeCarrinho.php"); ?>
                         <?php 
                             if(empty($_SESSION['quantidadeProduto']))
                                 echo 0;
